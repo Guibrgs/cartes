@@ -10,14 +10,14 @@ pipeline {
 				always{
 					echo "build stage finished!"
 				}
-				changed{ // si des fichiers ont changés
+				changed{ // si des fichiers ont changés, mais ici avec le "clean compile" se déclenche à chaque fois
 					echo "du changement en build"
 				}
 				failure{
-					echo "la piquette jacques! t'es mauvais!"
+					echo "la piquette jacques! t'es mauvais! super bad ! ça compile pas"
 				}
 				success{
-					echo "tiens un bon point!"
+					echo "tiens un bon point! build réussi"
 				}
 			}
 				
@@ -26,20 +26,34 @@ pipeline {
 			steps{
 				bat "mvn test"
 			}
+			post{
+				always{
+					echo "Phase de test finie"
+				}
+				changed{ // si des fichiers ont changés, mais ici avec le "clean compile" se déclenche à chaque fois
+					echo "du changement en phase de test"
+				}
+				failure{
+					echo "la piquette jacques! t'es mauvais! tes tests ont échoués"
+				}
+				success{
+					echo "tiens un bon point! tous les tests sont bons!"
+				}
+			}
 		}
 	}
 	post{
 				always{
-					echo "build stage finished!"
+					echo "tout est fini!"
 				}
 				changed{ // si des fichiers ont changés
-					echo "du changement en build"
+					echo "du changement?"
 				}
 				failure{
-					echo "la piquette jacques! t'es mauvais!"
+					echo "la piquette jacques! t'es mauvais! ton projet a foiré"
 				}
 				success{
-					echo "tiens un bon point!"
+					echo "tiens un bon point! tout est niquel"
 				}
 			}
 }
