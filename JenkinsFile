@@ -46,6 +46,11 @@ pipeline {
 				bat "mvn -DskipTests package"
 			}
 		}
+		stage('deliver'){
+			steps{
+				bat "Scripts\deliver.bat"
+			}
+		}
 		
 	}
 	post{
