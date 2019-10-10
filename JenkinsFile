@@ -48,7 +48,7 @@ pipeline {
 		}
 		stage('deliver'){
 			steps{
-				bat "Scripts\deliver.bat"
+				bat "Scripts/deliver.bat"
 			}
 		}
 		
