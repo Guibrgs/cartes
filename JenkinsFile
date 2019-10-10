@@ -6,6 +6,21 @@ pipeline {
 			steps{
 				bat "mvn clean compile"
 			}
+			post{
+				always{
+					echo "build stage finished!"
+				}
+				changed{ // si des fichiers ont changés
+					echo "du changement en build"
+				}
+				failure{
+					echo "la piquette jacques! t'es mauvais!"
+				}
+				success{
+					echo "tiens un bon point!"
+				}
+			}
+				
 		}
 		stage('test'){
 			steps{
@@ -13,5 +28,18 @@ pipeline {
 			}
 		}
 	}
-	
+	post{
+				always{
+					echo "build stage finished!"
+				}
+				changed{ // si des fichiers ont changés
+					echo "du changement en build"
+				}
+				failure{
+					echo "la piquette jacques! t'es mauvais!"
+				}
+				success{
+					echo "tiens un bon point!"
+				}
+			}
 }
