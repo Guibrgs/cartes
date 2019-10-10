@@ -52,7 +52,7 @@ public class Carte {
 			return false;
 		if (this.valeur != other.valeur)
 			return false;
-		return true;
+		return true
 	}
 
 	
