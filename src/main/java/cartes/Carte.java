@@ -3,7 +3,7 @@ package cartes;
 import java.util.Objects;
 
 public class Carte {
-	private Valeur valeur
+	private Valeur valeur;
 	private Signe signe;
 
 	public Carte(Valeur valeur, Signe signe) {
