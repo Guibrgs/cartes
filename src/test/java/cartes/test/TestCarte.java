@@ -14,25 +14,24 @@ class TestCarte {
 	@Test
 	void testConstructeur() {
 		// given
-		Signe  signe = Signe.CARREAU;
+		Signe signe = Signe.CARREAU;
 		Valeur valeur = Valeur.DAME;
 		// when
 		Carte carte = new Carte(valeur, signe);
 		// then
 		assertAll(
-				()->assertEquals(signe, carte.getSigne()),
-				()->assertEquals(valeur, carte.getValeur()),
-				()->assertEquals(Couleur.ROUGE, carte.getCouleur())
+			()->assertEquals(signe, carte.getSigne()),
+			()->assertEquals(valeur, carte.getValeur()),
+			()->assertEquals(Couleur.ROUGE, carte.getCouleur())
 		);
-		
 	}
 	
 	@Test
 	void testEqualsNull() {
 		// given
-		Carte c1 = new Carte(Valeur.DAME, Signe.COEUR);
+		Carte c = new Carte(Valeur.DAME, Signe.COEUR);
 		// when
-		boolean res = c1.equals(null);
+		boolean res = c.equals(null);
 		// then
 		assertFalse(res);
 	}
